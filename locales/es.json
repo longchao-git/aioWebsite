@@ -15,16 +15,17 @@
     "Gastos": "Gastos de envío"
   },
   "index": {
-    "oneTitle": "Welcome to Business KUAI-ZI",
-    "oneName": "Add Your Business With Our Services",
-    "oneContent": "Unlock Your Potential and Drive Growth. We help business to perform with our customized solutions helping them take business decisions.",
+    "oneTitle": "Welcome to Business AIO",
+    "oneName": "Descárgate la app",
+    "oneNameTwo": "Comida a domicilio y mucho más",
+    "oneContent": "Supermercados, tiendas, farmacias, ¡lo que sea! Pide lo que sea y haz el seguimiento en tiempo real con la app Glovo.",
     "oneButtonLeft": "Play Store",
     "oneButtonRight": "App Store",
     "twoName": "About Us Partner With Our Trusted Platform Today.",
     "twoTop": "Experience the Flavors of the World, Delivered to Your Doorstep! Discover culinary delights from around the globe with our convenient food delivery platform. Satisfy your cravings with a diverse selection of mouthwatering dishes, all just a few taps away.",
     "twoBoot": "Whether you're in the mood for savory, spicy, or sweet, we've got you covered. Fast, fresh, and hassle-free – we bring your favorite restaurants to you. Order now and let your taste buds embark on a global culinary journey without leaving your home!",
     "threeName": "Takeaway Services We Offered",
-    "threeTitle": "At KUAIZI, we have a passionate and experienced team committed to bringing you the best dining experiences. Our team is comprised of individuals who share a love for food, technology, and customer satisfaction. At KUAIZI, we have a passionate and experienced team committed to bringing you the best dining experiences. Our team is comprised of individuals who share a love for food, technology, and customer satisfaction.",
+    "threeTitle": "At AIO, we have a passionate and experienced team committed to bringing you the best dining experiences. Our team is comprised of individuals who share a love for food, technology, and customer satisfaction. At AIO, we have a passionate and experienced team committed to bringing you the best dining experiences. Our team is comprised of individuals who share a love for food, technology, and customer satisfaction.",
     "threeLeftTopName": "Endless Culinary Choices",
     "threeLeftTopTitle": "Explore a vast array of restaurants and cuisines at your fingertips. From local favorites to international delicacies, there's something to satisfy every craving.",
     "threeLeftBootName": "Swift Delivery",
@@ -34,6 +35,13 @@
     "threeRightBootName": "Quality Assurance",
     "threeRightBootTitle": "We prioritize quality and safety, from the restaurants we partner with to our food packaging. Enjoy peace of mind knowing that your meal is prepared and delivered with care."
   },
+  "indexTwo": {
+    "twoName": "Todo lo que quieras",
+    "twoTop": "Los mejores restaurantes de tu ciudad Con una gran variedad de restaurantes, ¡podrás pedir tu comida favorita o explorar nuevos restaurantes cerca!",
+    "twoBoot": "Entrega rápida¡Como un rayo! Pide o envía cualquier cosa en tu ciudad y recíbelo en minutos",
+    "twFalse": "La compra del súper y mucho más¡Encuentra todo lo que necesites! Desde Supermercados, tiendas, farmacias, floristerías...: si está en tu ciudad, pídelo y recíbelo."
+  },
+
   "footer": {
     "footerItem":{
       "title": "Wishing you a flavorful journey and bon appétit"
@@ -55,7 +63,7 @@
       "content": "May our service continue to simplify your life and enhance your dining experiences"
     },
     "footerBottom": {
-      "desc": "Copyright © 2024.KUAIZI All rights reserved. "
+      "desc": "Copyright © 2024.AIO All rights reserved. "
     }
   },
   "creation": {

@@ -12,8 +12,8 @@ export default {
 
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
-        titleTemplate: 'KUAIZI',
-        title: 'KUAIZI',
+        titleTemplate: 'AIO',
+        title: 'AIO',
         htmlAttrs: {
             lang: 'es'
         },

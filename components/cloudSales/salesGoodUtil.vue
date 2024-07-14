@@ -1,10 +1,10 @@
 <template>
   <div class='content_tab'>
     <div class='flex flex-bw flex-a-c title'>
-      <h3 class='module_title'>{{ topInfo.title }} <span v-if="topInfo.yyst != '1'" style='color: #ee8080'>({{ $t('creation.cerrado')}})</span></h3>
+      <h3 class='module_title'>{{ topInfo.title }} <span v-if="topInfo.yyst != '1'" style='color: #ff797c'>({{ $t('creation.cerrado')}})</span></h3>
     </div>
     <div  v-for="(item,index) in list" :key='index' >
-      <div style='color: #ee8080;margin-bottom: 12px' class=' font14'>{{item.title}}</div>
+      <div style='color: #ff797c;margin-bottom: 12px' class=' font14'>{{item.title}}</div>
       <div class='card_container'>
         <div class='card_item' v-for='(items,indexs) in item.products' :key='indexs'  v-if="items.specs.length == 0 && items.specification.length == 0&&items.sale_sku>0">
           <div class='card_img_container'>
@@ -13,7 +13,7 @@
           <div class='flex flex-column'>
             <span class='font18 fontb beyond'>{{ items.title }} </span>
             <div style='display: flex;flex-direction: row; justify-content: space-between;'>
-              <span class=' line22 classNameView' style='color: #ee8080;'>
+              <span class=' line22 classNameView' style='color: #ff797c;'>
                 	<span>€</span>
 								{{items.price}}
 								<span>/ {{items.unit}}</span>
@@ -161,7 +161,7 @@ export default {
       display: inline-block;
       width: 5px;
       height: 28px;
-      background-color: #ee8080;
+      background-color: #ff797c;
       margin-right: 16px;
       flex-shrink: 0;
     }
@@ -204,7 +204,7 @@ export default {
     .buttonView {
       width: 20px;
       height: 20px;
-      background: #ee8080;
+      background: #ff797c;
       border-radius: 20px;
       text-align: center;
       color: white;

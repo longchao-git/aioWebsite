@@ -11,7 +11,7 @@
           <div class='ml1'>
             <div>{{ productInfo.title }}</div>
             <span class='color-4B4B4B font14 line22'>
-              <span class=' line22 classNameView' style='color: #ee8080;'>
+              <span class=' line22 classNameView' style='color: #ff797c;'>
                 	<span>€</span>
 								{{productInfo.price}}
 								<span>/ {{productInfo.unit}}</span>
@@ -175,7 +175,7 @@ export default {
         display: inline-block;
         width: 2px;
         height: 10px;
-        background-color: #ee8080;
+        background-color: #ff797c;
         margin-right: 8px;
         flex-shrink: 0;
 
@@ -212,7 +212,7 @@ export default {
     .button_info {
       width: 304px;
       height: 53px;
-      background: #ee8080;
+      background: #ff797c;
       border-radius: 4px 4px 4px 4px;
       text-align: center;
       line-height: 53px;

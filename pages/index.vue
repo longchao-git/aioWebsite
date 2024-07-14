@@ -7,7 +7,7 @@
           <div class='_left'>
 
             <div class='Business'>{{ $t('index.oneTitle') }}</div>
-            <div class='Services'>{{ $t('index.oneName') }}</div>
+            <div class='Services'>{{ $t('index.oneNameTwo') }}</div>
             <div class='login-input' >
               <el-input v-model='context' :placeholder="$t('header.placeholder')" class='c-input' style='color: #FFFFFF' />
               <!--          el-icon-search-->
@@ -15,6 +15,7 @@
               <!--          <img style='width: 32px; height: 32px' src='~/assets/images/cloudSales/icon_sousuo.png' alt='' @click='handleClick(2)'/>-->
             </div>
             <div class='Potential'>{{ $t('index.oneContent') }}</div>
+            <div class='Services'>{{ $t('index.oneName') }}</div>
             <div class='button-view' style='display: flex; width: 100%'>
 <!--              <v-btn @click='handleClick(1)' height='50px' class='try-out-bt'-->
 <!--                     style='margin-right: 20px;margin-bottom: 20px'>-->
@@ -100,9 +101,9 @@ export default {
 
     handleClick(type) {
       if (type === 1) {
-        window.location.href = 'https://play.google.com/store/apps/details?id=com.kuaizi.waimai&pcampaignid=web_share';
+        window.location.href = 'https://play.google.com/store/apps/details?id=com.AIO.waimai&pcampaignid=web_share';
       } else if(type === 2) {
-        window.location.href = 'https://apps.apple.com/es/app/kuaizi/id6447261841';
+        window.location.href = 'https://apps.apple.com/cn/app/aio-all-in-one/id1451302299';
       }else {
         if (!this.context) {
           this.$message.warning(this.$t('header.placeholder'));
@@ -144,7 +145,7 @@ export default {
   height: 52px;
   margin: 30px 0;
   border-radius: 60px;
-  background: #ee8080;
+  background: #ff797c;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -42,12 +42,12 @@
     overflow: -moz-scrollbars-none;
   }
   .el-button.el-button--text{
-    color: #ee8080 !important;
+    color: #ff797c !important;
     padding: 0;
   }
   .el-button--primary{
-    background-color: #ee8080 !important;
-    border-color: #ee8080 !important;
+    background-color: #ff797c !important;
+    border-color: #ff797c !important;
   }
   .el-breadcrumb__inner.is-link:hover {
     color: #133ba0 !important;
@@ -576,7 +576,7 @@
   .base-bg {
     @extend .tran-300ms;
     border-radius: 25px;
-    background: #ee8080 !important;
+    background: #ff797c !important;
 
     &:hover {
       background: #365775 !important;

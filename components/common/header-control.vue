@@ -173,7 +173,7 @@ export default {
     },
     handleClick(type) {
       if(type === 1){
-        window.location.href = 'https://apps.apple.com/cn/app/justfast-cliente/id6480045843';
+        window.location.href = 'https://apps.apple.com/cn/app/aio-all-in-one/id1451302299';
       }else {
         if (!this.context) {
           this.$message.warning(this.$t('header.placeholder'));
@@ -228,7 +228,7 @@ export default {
       height: 52px;
       margin: 0 126px 0 166px;
       border-radius: 60px;
-      background: #ee8080;
+      background: #ff797c;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -244,8 +244,8 @@ export default {
       }
     }
     .login-bt {
-      box-shadow: inset 0 0 20px #EE8080;
-      background: #EE8080;
+      box-shadow: inset 0 0 20px #ff797c;
+      background: #ff797c;
       border-radius: 35px;
       height: 49px;
       padding: 0 20px;
