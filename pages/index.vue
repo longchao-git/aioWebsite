@@ -101,7 +101,7 @@ export default {
 
     handleClick(type) {
       if (type === 1) {
-        window.location.href = 'https://play.google.com/store/apps/details?id=com.AIO.waimai&pcampaignid=web_share';
+        window.location.href = 'https://play.google.com/store/apps/details?id=com.aioall.waimai&pcampaignid=web_share';
       } else if(type === 2) {
         window.location.href = 'https://apps.apple.com/cn/app/aio-all-in-one/id1451302299';
       }else {
