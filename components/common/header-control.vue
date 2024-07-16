@@ -17,12 +17,12 @@
             alt=""
           />
           <v-spacer />
-          <div class='login-input' v-if='getActiveMenuInx>0'>
-            <el-input v-model='context' :placeholder="$t('header.placeholder')" class='c-input' style='color: #FFFFFF' />
-            <!--          el-icon-search-->
-            <i class="el-icon-search " @click='handleClick(2)' style='font-size: 24px'></i>
-            <!--          <img style='width: 32px; height: 32px' src='~/assets/images/cloudSales/icon_sousuo.png' alt='' @click='handleClick(2)'/>-->
-          </div>
+<!--          <div class='login-input' v-if='getActiveMenuInx>0'>-->
+<!--            <el-input v-model='context' :placeholder="$t('header.placeholder')" class='c-input' style='color: #FFFFFF' />-->
+<!--            &lt;!&ndash;          el-icon-search&ndash;&gt;-->
+<!--            <i class="el-icon-search " @click='handleClick(2)' style='font-size: 24px'></i>-->
+<!--            &lt;!&ndash;          <img style='width: 32px; height: 32px' src='~/assets/images/cloudSales/icon_sousuo.png' alt='' @click='handleClick(2)'/>&ndash;&gt;-->
+<!--          </div>-->
           <div style='display: flex'>
             <v-btn @click='handleInfoWindowState(true)' class='login-bt try-out-bt' height='50px'> {{ $t('header.lang')
               }}
@@ -46,12 +46,12 @@
 <!--        </div>-->
 
         <!-- 登录样式 -->
-        <div class='login-input' v-if='getActiveMenuInx>0' >
-          <el-input v-model='context' :placeholder="$t('header.placeholder')" class='c-input' style='color: #FFFFFF' />
-<!--          el-icon-search-->
-          <i class="el-icon-search " @click='handleClick(2)' style='font-size: 24px'></i>
-<!--          <img style='width: 32px; height: 32px' src='~/assets/images/cloudSales/icon_sousuo.png' alt='' @click='handleClick(2)'/>-->
-        </div>
+<!--        <div class='login-input' v-if='getActiveMenuInx>0' >-->
+<!--          <el-input v-model='context' :placeholder="$t('header.placeholder')" class='c-input' style='color: #FFFFFF' />-->
+<!--&lt;!&ndash;          el-icon-search&ndash;&gt;-->
+<!--          <i class="el-icon-search " @click='handleClick(2)' style='font-size: 24px'></i>-->
+<!--&lt;!&ndash;          <img style='width: 32px; height: 32px' src='~/assets/images/cloudSales/icon_sousuo.png' alt='' @click='handleClick(2)'/>&ndash;&gt;-->
+<!--        </div>-->
         <div  style='display: flex'>
           <v-btn @click='handleInfoWindowState(true)' class='login-bt try-out-bt' height='50px' style='margin-right: 20px;'> {{ $t('header.lang')
             }}
