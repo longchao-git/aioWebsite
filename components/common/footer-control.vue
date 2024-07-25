@@ -25,9 +25,9 @@
             <!-- <div class="f-divider"></div> -->
             <div class="asy-phone">
               <div class="service_title">{{ $t('footer.UsefulLinks.content') }}</div>
-              <div class="service_title">{{ $t('footer.UsefulLinks.desc') }}</div>
-              <div class="service_title">{{ $t('footer.UsefulLinks.contentOne') }}</div>
-              <div class="service_title">{{ $t('footer.UsefulLinks.descOne') }}</div>
+<!--              <div class="service_title">{{ $t('footer.UsefulLinks.desc') }}</div>-->
+<!--              <div class="service_title">{{ $t('footer.UsefulLinks.contentOne') }}</div>-->
+<!--              <div class="service_title">{{ $t('footer.UsefulLinks.descOne') }}</div>-->
             </div>
           </div>
           <div class="asy-box">

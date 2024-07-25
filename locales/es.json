@@ -52,11 +52,8 @@
       "desc": "Contact"
     },
     "UsefulLinks": {
-      "name": "Useful Links",
-      "content": "Endless Culinary Choices",
-      "desc": "Convenient Ordering",
-      "contentOne": "Swift Delivery",
-      "descOne": "Convenient Ordering"
+      "name": "mailbox",
+      "content": "jx@aioeuropa.com"
     },
     "SubscribeToOurNewsletter": {
       "name": "Subscribe To Our Newsletter",
