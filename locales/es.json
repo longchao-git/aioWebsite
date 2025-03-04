@@ -6,13 +6,17 @@
     "login": "Iniciar sesión",
     "register": "Registrarse"
   },
+  "userPopup": {
+    "name": "Iniciar sesión"
+  },
   "home": {
     "moduleTitle": "Todos los restaurantes",
     "lengua": "lengua",
     "tasa": "tasa" ,
     "ingrese":"Por favor ingrese",
     "partir": "Envíos a partir de",
-    "Gastos": "Gastos de envío"
+    "Gastos": "Gastos de envío",
+    "postageandpackingfee": "Gastos de envío"
   },
   "index": {
     "oneTitle": "Welcome to Business AIO",
@@ -64,6 +68,8 @@
     }
   },
   "creation": {
+    "oneTitle": "No hay más",
+    "twoTitle": "Datos aún no disponibles",
     "title": "Haga clic para cargar más",
     "cerrado": "cerrado",
     "gastos": "Sin gastos de envío",
@@ -75,11 +81,90 @@
     "name": "Orden"
   },
   "loginPopup": {
-    "name": "Pago/dirección",
-    "fromOne": "Calle ciudad país",
-    "fromTwo": "Número de habitación",
-    "fromTree": "código postal",
-    "fromFour": "Comentarios",
-    "fromFive": "La tarjeta"
-  }
+    "name": "Pago/Dirección",
+    "fromOne": "Dirección",
+    "fromTwo": "Número de casa",
+    "fromTree": "Destinatario",
+    "fromFour": "Número de teléfono",
+    "fromFive": "Número de tarjeta"
+  },
+  "loginOrRegister": {
+    "title": "Iniciar sesión o registrarse",
+    "formLabel": [
+      "País/Región",
+      "Número de teléfono",
+      "Código de verificación del teléfono",
+      "Verificación de imagen"
+    ],
+    "btnText": [
+      "Iniciar sesión o registrarse",
+      "Obtener código",
+      "Volver a obtener después"
+    ],
+    "placeholder": [
+      "Por favor ingrese",
+      "Por favor seleccione"
+    ]
+  },
+  "addAddr": {
+    "name": "Agregar dirección",
+    "ingrese": "Por favor ingrese"
+  },
+  "asentar": "Confirmar",
+  "Guardar": "Guardado con éxito",
+  "save": "Guardar",
+  "bank": {
+    "bank": "Tarjeta bancaria",
+    "name": "Vincular tarjeta bancaria",
+    "type": "Tipo de tarjeta",
+    "bankName": "Nombre del banco",
+    "cardNumber": "Número de tarjeta",
+    "year": "Año",
+    "month": "Mes",
+    "cvc": "Código de seguridad",
+    "but": "Confirmar vinculación"
+  },
+  "importetotal": "Importe total",
+  "partir": "Entrega mínima",
+  "productos": "Stock insuficiente",
+  "salida": "El importe total es inferior al precio mínimo de entrega",
+  "online_pay": "Pago en línea",
+  "is_daofu": "Pago en efectivo al recibir",
+  "is_pos": "Pago con tarjeta al recibir",
+  "addView": "Pedido realizado con éxito",
+  "enviado": "Pedido enviado",
+  "all": "Todo",
+  "depago": "Método de pago",
+  "comprador": "Mensaje del comprador",
+  "searchaddress": "Buscar dirección",
+  "search": "Buscar",
+  "PleaseSearchFirst": "Por favor, busque primero",
+  "PleaseNumber": "Por favor ingrese el número de tarjeta",
+  "Thebankcard": "Tarjeta bancaria ya vinculada. Si desea vincular otra, elimine la tarjeta anterior",
+  "failtoadd": "Error al agregar",
+  "Commodityamount": "Importe del producto",
+  "postagefee": "Gastos de envío",
+  "packingexpense": "Gastos de embalaje",
+  "Deletethiscard": "Eliminar esta tarjeta",
+  "confirm": {
+    "one": "¿Está seguro de que desea eliminar? ¿Desea continuar?",
+    "two": "Aviso",
+    "tree": "Cancelar",
+    "five": "Eliminado con éxito"
+  },
+  "city": "Ciudad",
+  "红包": "Sobre rojo",
+  "优惠券": "Cupones",
+  "配送会员卡": "Entrega tarjeta socio",
+  "购买配送会员卡": "Comprar entrega tarjeta de socio",
+  "红包优惠": "Ofertas sobre rojo",
+  "优惠券优惠": "Ofertas con cupones",
+  "首单优惠": "Oferta primera orden",
+  "恶劣天气附加配送费": "Gastos de entrega adicionales por mal tiempo",
+  "实付配送费": "Pago real por entrega",
+  "满": "Lleno de",
+  "可减": "Puede restar",
+  "每单立减": "Menos por cada instante",
+  "配送费,价格": "Gastos de envío, precios",
+  "获取图形验证": "Obtener verificación gráfica"
 }

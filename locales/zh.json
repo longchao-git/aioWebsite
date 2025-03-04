@@ -15,7 +15,8 @@
     "tasa": "规格",
     "ingrese": "请输入",
     "partir": "起送",
-    "Gastos": "配送"
+    "Gastos": "配送",
+    "postageandpackingfee": "配送费"
   },
   "index": {
     "oneTitle": "欢迎来到AIO",
@@ -34,9 +35,9 @@
     "threeLeftBootName": "快速送货",
     "threeLeftBootTitle": "我们以快速、可靠地为您送餐而自豪。我们高效的配送系统可确保您的餐食在短时间内热腾腾、新鲜的送到您家门口。",
     "threeRightTopName": "订购方便",
-    "threeRightTopTitle": "只需在我们用户友好的应用程序或网站上点击几下即可订购您喜欢的菜肴。我们直观的界面让订购变得轻而易举，您可以根据自己的喜好定制餐点。\n\n",
+    "threeRightTopTitle": "只需在我们用户友好的应用程序或网站上点击几下即可订购您喜欢的菜肴。我们直观的界面让订购变得轻而易举，您可以根据自己的喜好定制餐点。",
     "threeRightBootName": "质量保证",
-    "threeRightBootTitle": "从合作餐厅到食品包装，我们始终将质量和安全放在首位。您可以放心，我们的餐食都是精心准备和配送的。\n\n"
+    "threeRightBootTitle": "从合作餐厅到食品包装，我们始终将质量和安全放在首位。您可以放心，我们的餐食都是精心准备和配送的。"
   },
   "indexTwo": {
     "twoName": "所有你想要的",
@@ -66,6 +67,8 @@
     }
   },
   "creation": {
+    "oneTitle": "暂无更多",
+    "twoTitle": "暂无数据",
     "title": "点击加载更多",
     "cerrado": "打烊了",
     "gastos": "免配送费",
@@ -78,10 +81,89 @@
   },
   "loginPopup": {
     "name": "支付/地址",
-    "fromOne": "街道城市国家",
-    "fromTwo": "房间号",
-    "fromTree": "邮编",
-    "fromFour": "备注",
+    "fromOne": "地址",
+    "fromTwo": "门牌号",
+    "fromTree": "收货人",
+    "fromFour": "手机号",
     "fromFive": "卡号"
-  }
+  },
+  "loginOrRegister": {
+    "title": "登录或注册",
+    "formLabel": [
+      "国家/地区",
+      "手机号码",
+      "手机验证码",
+      "图形验证"
+    ],
+    "btnText": [
+      "登录或注册",
+      "获取验证码",
+      "后重新获取"
+    ],
+    "placeholder": [
+      "请输入",
+      "请选择"
+    ]
+  },
+  "addAddr": {
+    "name": "添加地址",
+    "ingrese": "请输入"
+  },
+  "asentar": "确定",
+  "Guardar": "保存成功",
+  "save": "保存",
+  "bank": {
+    "bank": "银行卡",
+    "name": "绑定银行卡",
+    "type": "卡类型",
+    "bankName": "卡名称",
+    "cardNumber": "卡号",
+    "year": "年份",
+    "month": "月",
+    "cvc": "安全码",
+    "but": "确认绑定"
+  },
+  "importetotal": "总金额",
+  "partir": "起送",
+  "productos": "商品库存不足",
+  "salida": "总金额小于起送价格",
+  "online_pay": "在线支付",
+  "is_daofu": "餐到付款现金",
+  "is_pos": "餐到付款刷卡",
+  "addView": "下单成功",
+  "enviado": "订单已提交",
+  "all": "全部",
+  "depago": "支付方式",
+  "comprador": "买家留言",
+  "searchaddress": "搜索地址",
+  "search": "搜索",
+  "PleaseSearchFirst": "请先搜索",
+  "PleaseNumber": "请输入卡号",
+  "Thebankcard": "已绑定银行卡了 如还需绑定请删除之前银行卡",
+  "failtoadd": "添加失败",
+  "Commodityamount": "商品金额",
+  "postagefee": "配送费",
+  "packingexpense": "包装费",
+  "Deletethiscard": "删除此卡",
+  "confirm": {
+    "one": "确认删除吗, 是否继续",
+    "two": "提示",
+    "tree": "取消",
+    "five": "删除成功"
+  },
+  "city": "城市",
+  "红包": "红包",
+  "优惠券": "优惠券",
+  "配送会员卡": "配送会员卡",
+  "购买配送会员卡": "购买配送会员卡",
+  "红包优惠": "红包优惠",
+  "优惠券优惠": "优惠券优惠",
+  "首单优惠": "首单优惠",
+  "恶劣天气附加配送费": "恶劣天气附加配送费",
+  "实付配送费": "实付配送费",
+  "满": "满",
+  "可减": "可减",
+  "每单立减": "每单立减",
+  "配送费,价格": "配送费,价格",
+  "获取图形验证": "获取图形验证"
 }

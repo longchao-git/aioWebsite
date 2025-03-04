@@ -1,62 +1,87 @@
 <template>
-  <div class="detail_container">
-    <expansion-market :lists='lists'/>
-    <div class="flex flex-a-c flex-j-c mt3" style="cursor: pointer" @click='bindTapCilck'>
-      <span class="color-242424 font14">{{ $t('creation.title') }}</span>
+  <div class='detail_container'>
+    <expansion-market :lists='lists' />
+    <div class='flex flex-a-c flex-j-c mt3' style='cursor: pointer' @click='bindTapCilck'>
+      <span class=' font18 '
+            style='font-weight: 500;color: #ee8080'>{{ morehidden ? $t('creation.title') : $t('creation.oneTitle') }}</span>
     </div>
   </div>
 </template>
 
 <script>
 import config from '../config';
-import { mapMutations } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
 
 import ExpansionMarket from '@/components/cloudSales/expansionMarket';
+
 export default {
   components: {
     ExpansionMarket
   },
   data() {
     return {
-      page:1,
-      lists:[],
-      keywords:'',
+      page: 1,
+      lists: [],
+      keywords: '',
+      morehidden: true
     };
   },
 
-  async fetch() {},
+  async fetch() {
+  },
   methods: {
     ...mapMutations(['SET_KEYWORDS']),
-    handleAuthor(){
-      window.location.href = '/authorIndex'
+    handleAuthor() {
+      window.location.href = '/authorIndex';
     },
-    bindTapCilck(){
-      this.page++
-      this.shopSearch()
+    bindTapCilck() {
+      this.page++;
+      this.shopSearch();
     },
-    shopSearch(){
+    shopSearch() {
+      this.morehidden = true;
+
       const params = {
-        // "LANG":localStorage.getItem('locale')
-        data: {'page': this.page, "type":"shops","title":this.keywords, }
+        data: { 'page': this.page, 'title': this.keywords,lat:localStorage.getItem('LAT') || 40.4202472,lng:  localStorage.getItem('LNG') || -3.7160397}
       };
+
       this.$axios.post('/client/waimai/shop/search', params).then(res => {
-
-        if(this.page == 1 ){
-          this.lists = res.items
-        }else {
-          this.lists = this.lists.concat(res.items)
+        if (res.items.length == 0) {
+          this.morehidden = false;
+        } else {
+          this.morehidden = true;
         }
-
+        if (this.page == 1) {
+          this.lists = res.items;
+        } else {
+          this.lists = this.lists.concat(res.items);
+        }
+      }).catch(err => {
+        this.$message.info(err.message);
       });
+    }
+  },
+  computed: {
+    ...mapGetters({
+      cityId: 'cityId',
+      locale: 'getLocale'
+    })
+  },
+  watch: {
+    cityId(newVal, oldVal) {
+      this.shopSearch();
+    },
+    locale(newVal, oldVal) {
+      this.shopSearch();
     }
   },
   mounted() {
     if (this.$route.query.keywords) {
-      this.keywords = this.$route.query.keywords
+      this.keywords = this.$route.query.keywords;
       this.SET_KEYWORDS(this.$route.query.keywords);
     }
-    this.shopSearch()
-  },
+    this.shopSearch();
+  }
 };
 </script>
 <style>
@@ -64,7 +89,7 @@ export default {
   background-color: #f5f5f5;
 }
 </style>
-<style scoped lang="scss">
+<style scoped lang='scss'>
 .detail_container {
   width: 90%;
   margin: 0 auto;

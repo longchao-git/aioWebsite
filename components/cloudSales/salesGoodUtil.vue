@@ -1,38 +1,42 @@
 <template>
-  <div class='content_tab'>
+  <div class='content_tab' :class='loginType!=-1?"isview_container":""'>
     <div class='flex flex-bw flex-a-c title'>
-      <h3 class='module_title'>{{ topInfo.title }} <span v-if="topInfo.yyst != '1'" style='color: #ff797c'>({{ $t('creation.cerrado')}})</span></h3>
+      <h3 class='module_title'>{{ topInfo.title }}
+        <span v-if="topInfo.yy_status != '1'||topInfo.yysj_status != '1'"
+              style='color: #ee8080'>({{ $t('creation.cerrado') }})</span>
+      </h3>
     </div>
-    <div  v-for="(item,index) in list" :key='index' >
-      <div style='color: #ff797c;margin-bottom: 12px' class=' font14'>{{item.title}}</div>
+    <div v-for='(item,index) in list' :key='index'>
+      <div style='color: #ee8080;margin-bottom: 12px' class=' font18'>{{ item.title }}</div>
       <div class='card_container'>
-        <div class='card_item' v-for='(items,indexs) in item.products' :key='indexs'  v-if="items.specs.length == 0 && items.specification.length == 0&&items.sale_sku>0">
+        <div class='card_item' v-for='(items,indexs) in item.products' :key='indexs' @click='loginbindTap(items,index,indexs)' >
           <div class='card_img_container'>
-            <img class='card_img fit-cover' :src="item.photo" />
+            <img class='card_img fit-cover' :src='items.photo' />
           </div>
-          <div class='flex flex-column'>
-            <span class='font18 fontb beyond'>{{ items.title }} </span>
-            <div style='display: flex;flex-direction: row; justify-content: space-between;'>
-              <span class=' line22 classNameView' style='color: #ff797c;'>
+          <div class='flex flex-column ml1'>
+            <span class='font16  beyond3' style='max-width: 160px'>{{ items.title }} </span>
+            <div style='display: flex;flex-direction: row; margin-top: 10px'>
+              <span class=' line22 classNameView' style='color: #ee8080;margin-right: 6px'>
                 	<span>€</span>
-								{{items.price}}
-								<span>/ {{items.unit}}</span>
-								<span class='del ml5' v-if="items.is_discount == '1'">
-								{{items.oldprice}}/{{items.unit}}
+								{{ items.price }}
+								<span>/ {{ items.unit }}</span>
+								<span class='del ml5' style='font-size: 14px;color: #999999;text-decoration: line-through' v-if="items.is_discount == '1'">
+								{{ items.oldprice }}/{{ items.unit }}
 								</span>
               </span>
-              <div class='flex flex-j-end' v-if="items.specs.length == 0 && items.specification.length == 0&&items.sale_sku>0">
-                <div class='buttonView' @click='addCart(1,index,indexs)' v-if="items.num">-</div>
-                <div class="num mr1" v-if="items.num">
-                  {{items.num}}
+              <div class='flex '
+                   v-if='items.specs.length == 0 && items.specification.length == 0&&items.sale_sku>0'>
+                <div class='buttonView' @click.stop='addCart(1,index,indexs)' style='cursor: pointer' v-if='items.num'>-
                 </div>
-                <div class='buttonView' @click='addCart(2,index,indexs)' >+</div>
+                <div class='num mr1' v-if='items.num'>
+                  {{ items.num }}
+                </div>
+                <div class='buttonView' @click.stop='addCart(2,index,indexs)' style='cursor: pointer'>+</div>
               </div>
-
-              <div class='spec serg_btnss' v-else-if="items.sale_sku<=0">{{  $t('creation.Agotado') }}</div>
-              <div class='spec serg_btn'  @click='loginbindTap(items.product_id,items)'  v-else>
-                {{  $t('creation.disponibles') }}
-                <span class='num' v-if="items.num > 0">{{ items.num }}</span>
+              <div class='spec serg_btnss' v-else-if='items.sale_sku<=0'>{{ $t('creation.Agotado') }}</div>
+              <div class='spec serg_btn' @click.stop='loginbindTap(items,index,indexs)' v-else>
+                {{ $t('creation.disponibles') }}
+                <span class='num viewNUm' v-if='items.num > 0'>{{ items.num }}</span>
               </div>
             </div>
           </div>
@@ -40,7 +44,10 @@
       </div>
     </div>
 
-    <tick-attribute :type='loginType' :specification='specification' :specs='specs' :productInfo='productInfo' @handleCloseLoginDialog='handleCloseLoginDialog'></tick-attribute>
+    <tick-attribute @addCart='addNewCart' :priceDatass='priceDatass' :isValueNumber='isValueNumber' :type='loginType'
+                    @addspkCilck='addspkCilck' @bindspNewecsIndex='bindspNewecsIndex' :specsIndex='specsIndex'
+                    :specification='specification' :specs='specs' :productInfo='productInfo'
+                    @handleCloseLoginDialog='handleCloseLoginDialog'></tick-attribute>
   </div>
 </template>
 
@@ -60,10 +67,10 @@ export default {
       type: Array,
       default: []
     },
-    shop_id:{
+    shop_id: {
       type: String,
       default: ''
-    },
+    }
 
   },
   data() {
@@ -71,44 +78,130 @@ export default {
       active: 1,
       loginType: -1,
       specShow: false,
-      specs:[],
+      specs: [],
       newSpecs: {},
-      ecartList:[],
-      specification:[],
-      productInfo:{},
+      ecartList: [],
+      specification: [],
+      productInfo: {},
+      specsIndex: -1,
+      addIndex: {},
+      isValueNumber: 0,
+      priceDatass: []
     };
   },
   methods: {
     handleChangeTabs(tab) {
       this.active = tab;
     },
+    addspkCilck(value) {
+      let { index, indexs } = value;
+      this.$set(this.specification, index, {
+        ...this.specification[index],
+        spk: indexs
+      });
+      let valueName = [];
+      for (let i in this.specification) {
+        valueName.push(this.specification[i].val[this.specification[i].spk]);
+      }
+      let name = valueName.join(',');
+      for (let i in this.priceDatass) {
+        if (this.priceDatass[i].attrJson === name) {
+          this.isValueNumber = parseInt(i);
+        }
+      }
+    },
+    bindspNewecsIndex(index) {
+      this.loginType = 2;
+      this.specsIndex = index;
+
+    },
     /** 处理登录弹框的关闭操作 */
     handleCloseLoginDialog(value) {
-      console.log(value)
       this.loginType = value;
     },
-    loginbindTap(product_id,item){
+    childMethod(item,index, indexs,specsIndex,isValueNumber){
+
+
       this.loginType = 2;
-      this.productInfo = item
-      this.specs = item.specs
-      this.specification = item.specification
+      this.productInfo = item;
+      this.specification = item.specification;
+      this.specsIndex = specsIndex;
+      this.isValueNumber = isValueNumber
+      this.specs = item.specs;
+      this.addIndex = {
+        index,
+        indexs
+      };
+    },
+    loginbindTap(item, index, indexs) {
+      if(( item.specs.length > 0 ||item.specification.length > 0)&&item.sale_sku>0){
+        this.loginType = 2;
+        this.productInfo = item;
+        this.specification = item.specification;
+        let valueName = [];
+        for (let i in item.specification) {
+          valueName.push(item.specification[i].val[item.specification[i].spk]);
+        }
+        let name = valueName.join(',');
+        for (let i in item.priceDatass) {
+          if (item.priceDatass[i].attrJson === name) {
+            this.isValueNumber = parseInt(i);
+          }
+        }
+        this.priceDatass = item.priceDatass;
+        this.specsIndex = item.specsIndex;
+        this.specs = item.specs;
+
+        this.addIndex = {
+          index,
+          indexs
+        };
+      }
+
+
+    },
+    addNewCart(type) {
+      if (type === 3 || type === 4) {
+        this.$emit('addCilck', {
+          type,
+          ...this.addIndex,
+          specsIndex: this.specsIndex
+        });
+      } else  if (type === 5 || type === 6){
+        this.$emit('addCilck', {
+          type,
+          ...this.addIndex,
+          specsIndex: this.isValueNumber
+        });
+      }else  if (type === 7 || type === 8){
+        this.$emit('addCilck', {
+          type,
+          ...this.addIndex,
+          specsIndex: this.specsIndex,
+          isValueNumber:this.isValueNumber
+        });
+      }
     },
     //加入购物车
-    addCart(type,index,indexs) {
+    addCart(type, index, indexs) {
       this.$emit('addCilck', {
         type,
         index,
-        indexs,
-      })
+        indexs
+      });
 
-    },
+    }
   }
 };
 </script>
 
 <style lang='scss' scoped>
+.isview_container{
+  height:  calc((100vh - 500px));
+  overflow: hidden;
+}
 .content_tab {
-  width: 80%;
+  width: 85%;
   margin: 0 auto 24px;
 
   .tabs {
@@ -134,15 +227,32 @@ export default {
       }
     }
   }
+
   .serg_btn {
     background: #FF797C !important;
     font-size: 10px !important;
-    line-height: 16px !important;
-    height: 16px !important;
+    line-height: 24px !important;
+    height: 24px !important;
     padding: 0 7px !important;
     color: #fff !important;
+    position: relative;
+    cursor: pointer;
+    border-radius: 4px;
+
+    .viewNUm {
+      width: 18px;
+      height: 18px;
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      text-align: center;
+      border-radius: 50px;
+      line-height: 18px;
+      background: #ff9900;
+    }
   }
-  .serg_btnss{
+
+  .serg_btnss {
     background: #ffffff !important;
     font-size: 10px !important;
     line-height: 16px !important;
@@ -150,18 +260,19 @@ export default {
     padding: 0 7px !important;
     color: #999 !important;
   }
+
   .module_title {
-    font-size: 48px;
+    font-size: 32px;
     font-weight: 700;
     line-height: 58px;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
 
     &::before {
       content: '';
       display: inline-block;
       width: 5px;
       height: 28px;
-      background-color: #ff797c;
+      background-color: #ee8080;
       margin-right: 16px;
       flex-shrink: 0;
     }
@@ -184,27 +295,33 @@ export default {
   }
 
   .card_item {
-    width: calc((100% - 120px) / 6);
-    margin-bottom: 32px;
+    width: calc((100% - 120px) / 4);
+    margin-bottom: 24px;
     margin-right: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
     .card_img_container {
       position: relative;
-      margin-bottom: 16px;
+      //margin-bottom: 8px;
 
       .card_img {
-        width: 100%;
+        width: 120px;
         height: 120px;
         border-radius: 8px;
       }
 
     }
-    .classNameView{
-      font-size: 14px;
+
+    .classNameView {
+      font-size: 16px;
     }
+
     .buttonView {
       width: 20px;
       height: 20px;
-      background: #ff797c;
+      background: #ee8080;
       border-radius: 20px;
       text-align: center;
       color: white;
@@ -216,9 +333,9 @@ export default {
     }
   }
 
-  .card_item:nth-child(4n) {
-    margin-right: 0;
-  }
+  //.card_item:nth-child(4n) {
+  //  margin-right: 0;
+  //}
 }
 
 /* 中屏幕*/
@@ -231,9 +348,11 @@ export default {
         height: 250px;
       }
     }
-    .classNameView{
+
+    .classNameView {
       font-size: 20px !important;
     }
+
     .buttonView {
       width: 40px !important;
       height: 40px !important;
@@ -263,9 +382,9 @@ export default {
         margin-right: 24px;
         margin-bottom: 24px;
 
-        .card_img_container {
-          margin-bottom: 12px;
-        }
+        //.card_img_container {
+        //  margin-bottom: 4px;
+        //}
 
         .card_img {
           height: 212px;
@@ -273,9 +392,9 @@ export default {
 
       }
 
-      .card_item:nth-child(3n) {
-        margin-right: 0;
-      }
+      //.card_item:nth-child(3n) {
+      //  margin-right: 0;
+      //}
     }
   }
 }
@@ -301,10 +420,10 @@ export default {
         width: calc((100% - 12px) / 2);
         margin-right: 12px !important;
         margin-bottom: 12px !important;
-
-        .card_img_container {
-          margin-bottom: 8px;
-        }
+        //
+        //.card_img_container {
+        //  margin-bottom: 4px;
+        //}
 
         .card_img {
           height: 150px !important;
@@ -312,9 +431,9 @@ export default {
 
       }
 
-      .card_item:nth-child(2n) {
-        margin-right: 0 !important;
-      }
+      //.card_item:nth-child(2n) {
+      //  margin-right: 0 !important;
+      //}
     }
   }
 }

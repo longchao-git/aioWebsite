@@ -9,7 +9,6 @@
           </div>
           <div class='info-window_view'>
             <p class='pone'>{{ $t('home.lengua')}}</p>
-
             <div class='languageView'>
               <div @click='handleSelectLang(item)' v-for='(item, index) in languageList' :key='item.value'
                    :class='{ setView: setIndex === item.value }'>
@@ -18,7 +17,7 @@
               </div>
             </div>
             <div class='flex_center'>
-              <div @click='handleConfirmSubbit' class='button_info'>保存</div>
+              <div @click='handleConfirmSubbit' class='button_info'>{{ $t(`save`) }}</div>
             </div>
           </div>
         </v-card>
@@ -135,10 +134,10 @@ export default {
       cursor: pointer;
 
       .setView {
-        border: 1px solid #ff797c !important;
+        border: 1px solid #ee8080 !important;
 
         > div {
-          color: #ff797c !important;
+          color: #ee8080 !important;
         }
       }
 
@@ -180,7 +179,7 @@ export default {
   .button_info {
     width: 304px;
     height: 53px;
-    background: #ff797c;
+    background: #ee8080;
     border-radius: 4px 4px 4px 4px;
     text-align: center;
     line-height: 53px;

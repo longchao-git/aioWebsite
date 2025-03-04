@@ -4,27 +4,49 @@
       <h3 class='module_title'>{{ $t('home.moduleTitle') }}</h3>
     </div>
     <div class='card_container'>
-      <div @click='goDetail(item.shop_id)' class='card_item' v-for='(item,index) in lists' :key='index'>
-        <div class='card_img_container'>
-          <img class='card_img fit-cover' :src='item.logo' />
-          <div class='state' v-if="item.yyst != '1'">{{ $t('creation.cerrado') }}</div>
-        </div>
-        <div class='flex flex-column'>
-          <span class='font18 fontb beyond'>{{ item.title }}</span>
-          <div class='flex' style='align-items: center'>
-            <div class='text_amount'>
-              {{ $t('home.partir') }}€{{ item.min_amount }}
-            </div>
-
-            <div class='text_freight'>
-              <span v-if='item.freight == 0'>{{ $t('creation.gastos') }}</span>
-              <span v-else-if='item.is_reduce_pei == 1'>{{ $t('home.Gastos') }}配送费{{ item.reduceEd_freight }}</span>
-              <span v-else>{{ $t('home.Gastos') }}€{{ item.freight }}</span>
+      <div @click='goDetail(item.shop_id)' style='margin-bottom: 20px;cursor: pointer;' v-for='(item,index) in lists'
+           :key='index'>
+        <div style='display: flex;align-items: center;'>
+          <div class='photo' style='position: relative'>
+            <img class='fit-cover' :src='item.logo' style='width: 100px;height: 100px' />
+          </div>
+          <div class='flex flex-column viewViewCkass' style='padding-left: 16px'>
+            <span class='font18 fontb beyond classcolor'>{{ item.title }}</span>
+            <div class='flex' style='align-items: center'>
+              <div class='text_amount'>
+                {{ $t('home.partir') }}€{{ item.min_amount }}
+              </div>
+              <div class='text_freight classcolor' style='font-size: 14px'>
+                <span v-if='item.freight == 0'>{{ $t('creation.gastos') }}</span>
+                <span v-else-if='item.is_reduce_pei == 1'>{{ $t('home.Gastos') }}{{ $t('home.postageandpackingfee')
+                  }}{{ item.reduceEd_freight }}</span>
+                <span v-else>{{ $t('home.Gastos') }}€{{ item.freight }}</span>
+              </div>
             </div>
           </div>
-
-
         </div>
+        <div class='flex ' style='flex-wrap: wrap;margin-top: 20px' v-if='item.products.length>0'>
+          <div class='card_item' v-for='(items,indexs) in item.products' :key='indexs'>
+            <div class='card_img_container'>
+              <img class='card_img fit-cover' :src='items.photo' />
+            </div>
+            <div class='flex flex-column' style='margin-left: 16px'>
+              <span class='font18 fontb beyond2' style='width: 160px'>{{ items.title }} </span>
+              <div style='display: flex;flex-direction: row; justify-content: space-between;'>
+              <span class=' line22 classNameView' style='color: #ee8080;'>
+                	<span>€</span>
+								{{ items.price }}
+								<span v-if='items.unit'>/ {{ items.unit }}</span>
+								<span class='del ml5' style='font-size: 14px;color: #999999;text-decoration: line-through' v-if="items.is_discount == '1'">
+								{{ items.oldprice }} <span v-if='items.unit'>/{{ items.unit }}</span>
+								</span>
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </div>
   </div>
@@ -41,20 +63,69 @@ export default {
     lists: {
       type: Array,
       default: []
+    },
+    type: {
+      type: Number,
+      default: 0
     }
   },
   methods: {
     goDetail(shop_id) {
-      window.location.href = '/contentDetail?shop_id='+shop_id;
+      window.location.href = '/contentDetail?shop_id=' + shop_id;
     }
   }
 };
 </script>
 
 <style lang='scss' scoped>
+.listView {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  border-radius: 12px;
+
+  .photo {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+
+    .fit-cover {
+      width: 100% !important;
+      height: 200px !important;
+    }
+  }
+
+  .viewViewCkass {
+    left: 0;
+    right: 0;
+    height: 70px;
+    padding: 10px 0;
+    background: #ee8080;
+    position: absolute;
+    bottom: 0;
+
+    .classcolor {
+      color: #fff !important;
+    }
+  }
+}
+
 .cloud_sales_expansion_market {
   width: 80%;
   margin: 0 auto;
+
+  .state {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    line-height: 16px;
+    text-align: center;
+    background: #bbb;
+    color: #fff;
+    display: block;
+    font-size: 11px;
+  }
 
   .title {
     margin-bottom: 16px;
@@ -64,13 +135,13 @@ export default {
     font-size: 36px;
     color: #13161b;
     font-weight: 500;
-    font-family: 'Source Han Sans CN';
+    //font-family: 'Source Han Sans CN';
   }
 
   .text_amount {
     min-width: 44px;
     padding: 0 6px;
-    background: #2D2D2D;
+    background: #ee8080;
     box-shadow: 0px 0px 20px 0px rgba(163, 163, 164, 0.1);
     border-radius: 4px;
     font-size: 12px;
@@ -89,45 +160,42 @@ export default {
     border-radius: 32px;
     border: 1.5px solid #09236c;
     color: #09236c;
-    font-family: 'Source Han Sans CN';
+    //font-family: 'Source Han Sans CN';
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
   }
 }
 
-.card_container {
-  width: 100%;
+.isVafeView {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.card_container {
+  width: 100%;
+
+  .ovhsaView {
+    border-radius: 16px;
+    overflow: hidden;
+  }
 
   .card_item {
-
-    width: calc((100% - 180px) / 5);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: calc((100% - 180px) / 3);
     margin-bottom: 16px;
 
     .card_img_container {
       position: relative;
-      margin-bottom: 16px;
+      //margin-bottom: 16px;
 
       .card_img {
-        width: 100%;
-        height: 216px;
+        width: 120px;
+        height: 120px;
         border-radius: 8px;
-      }
-
-      .state {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        line-height: 16px;
-        text-align: center;
-        background: #bbb;
-        color: #fff;
-        display: block;
-        font-size: 11px;
       }
 
 
@@ -149,7 +217,7 @@ export default {
         width: calc((100% - 96px) / 4);
 
         .card_img {
-          height: 250px;
+          height: 120px;
         }
       }
     }
@@ -170,12 +238,12 @@ export default {
         width: calc((100% - 48px) / 3);
 
 
-        .card_img_container {
-          margin-bottom: 12px;
-        }
+        //.card_img_container {
+        //  margin-bottom: 12px;
+        //}
 
         .card_img {
-          height: 212px;
+          height: 120px;
         }
 
       }
@@ -212,12 +280,12 @@ export default {
       .card_item {
         width: calc((100% - 12px) / 2);
 
-        .card_img_container {
-          margin-bottom: 8px;
-        }
+        //.card_img_container {
+        //  margin-bottom: 8px;
+        //}
 
         .card_img {
-          height: 150px;
+          height: 120px;
         }
 
 

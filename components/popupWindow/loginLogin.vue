@@ -158,7 +158,7 @@ export default {
         align-items: center;
         margin-top: 12px;
         .button{
-          color: #ff797c;
+          color: #ee8080;
           font-size: 14px;
           position: absolute;
           right: 24px;
@@ -197,7 +197,7 @@ export default {
           -webkit-box-orient: vertical;
           width: 100%;
           >span{
-            color: #ff797c;
+            color: #ee8080;
           }
         }
       }
@@ -312,7 +312,7 @@ export default {
             color: #1D2129;
             >span{
               font-size: 12px;
-              color: #ff797c;
+              color: #ee8080;
             }
           }
         }
